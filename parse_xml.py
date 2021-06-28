@@ -1,11 +1,8 @@
 import xml.etree.ElementTree as ET
 import os
 import glob
-from typing import List
 from ebay_item import EbayItem
 from tqdm import tqdm
-from plot_images import plot_images
-from pprint import pprint
 
 def get_description_for_path(path:str) -> str:
     result = ""
