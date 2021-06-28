@@ -64,3 +64,11 @@ for i,folder in tqdm(enumerate(DATASET_FOLDER),position=2):
             
 print()
 
+#find labels for material prediction
+material_labels = set()
+for item in ebay_items:
+    search_key = 'Metall/Material'
+    if search_key in item.item_details:
+        material_labels.add(item.item_details["Metall/Material"])
+print(material_labels)
+
