@@ -3,14 +3,13 @@ import os
 import glob
 from ebay_item import EbayItem
 from tqdm import tqdm
+from pprint import pprint
 
 def get_description_for_path(path:str) -> str:
     result = ""
     with open(path,mode='r',encoding='UTF-8') as f:
         result = '\n'.join(f.readlines())
     return result
-
-
 
 DATASET_FOLDER = [os.path.join('eBay-Daten','Ebay_2019_09_03_bis_2019_11_30'),
                   os.path.join('eBay-Daten','Ebay_2019_12_01_bis_2020_02_14')]
@@ -64,6 +63,17 @@ for i,folder in tqdm(enumerate(DATASET_FOLDER),position=2):
             
 print()
 
+translation = {
+    "silber" : ["billon", "versilbert", "silber"],
+    "bronze" : ["breonze", "bronce", "bronze", "bronzen"],
+    "gold" : ["gold", "elektron", "elektrum", "eolektron", "electrum", "gild"],
+    "kupfer" : ["kupfer"],
+    "unbekannt" : ["oder", "?", "unbekannt", "bestimmen", "guss", "bi-metall", "blei", "messing"],
+    
+    }
+
+
+
 #find labels for material prediction
 material_labels = set()
 for item in ebay_items:
@@ -71,4 +81,26 @@ for item in ebay_items:
     if search_key in item.item_details:
         material_labels.add(item.item_details["Metall/Material"])
 print(material_labels)
+
+
+material_labels_final = {}
+for material in material_labels:
+    counter = 0
+    translate = ""
+    for key in translation.keys():
+        for word in translation[key]:
+            if word in material.lower():
+                counter += 1
+                translate = key
+                break
+    if counter > 1:
+        material_labels_final[material] = "unbekannt"
+    else:
+        material_labels_final[material] = translate
+        
+pprint(material_labels_final)
+
+
+
+
 
