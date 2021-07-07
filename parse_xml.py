@@ -4,6 +4,7 @@ import glob
 from ebay_item import EbayItem
 from tqdm import tqdm
 from pprint import pprint
+import cv2 as cv
 
 def get_description_for_path(path:str) -> str:
     result = ""
@@ -69,7 +70,6 @@ translation = {
     "gold" : ["gold", "elektron", "elektrum", "eolektron", "electrum", "gild"],
     "kupfer" : ["kupfer"],
     "unbekannt" : ["oder", "?", "unbekannt", "bestimmen", "guss", "bi-metall", "blei", "messing"],
-    
     }
 
 

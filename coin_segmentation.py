@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 MAX_SIZE = 500
 
-img = cv2.imread('eBay-Daten\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\153735540929_5.jpg',cv2.IMREAD_COLOR)
+img = cv2.imread('eBay-Daten\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\153619873202_6.jpg',cv2.IMREAD_COLOR)
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 gray = cv2.equalizeHist(gray)
 
@@ -19,8 +19,9 @@ hue = hsv_img[:,:,0]
 saturation = hsv_img[:,:,1]
 value = hsv_img[:,:,2]
 
+#kernel = np.ones((9,9),np.float32)/25
 median_blur_hue = cv2.medianBlur(hue,11)
-median_blur_value = cv2.medianBlur(value,11)
+median_blur_value = cv2.medianBlur(value,11)#cv2.filter2D(value,-1,kernel) #
 
 mask_hue = cv2.adaptiveThreshold(median_blur_hue,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,2)
 mask_value = cv2.adaptiveThreshold(median_blur_value,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,2)

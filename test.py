@@ -5,7 +5,7 @@ from skimage.filters import sobel
 from scipy import ndimage as ndi
 from skimage.segmentation import watershed
 
-img = cv2.imread('eBay-Daten\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\163941613743_0.jpg',cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('eBay-Daten\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\153619873202_6.jpg',cv2.IMREAD_GRAYSCALE)
 img = cv2.medianBlur(img,7)
 hist = np.histogram(img, bins=np.arange(0, 256))
 

@@ -1,3 +1,5 @@
 eBay-Daten/*
 __pycache__/*
 .vscode/*
+Tensorflow/*
+labelImg/*
