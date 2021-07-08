@@ -20,4 +20,4 @@ python exporter_main_v2.py --trained_checkpoint_dir=./models/efficientdet_d0/v1/
 python .\inference.py
 
 # Example
-![Test](\workspace\videos\result.gif)
+![Example video of coin detection](https://github.com/dbudgenh/Data-Challenges-Numismatic/blob/master/workspace/videos/result.gif)
