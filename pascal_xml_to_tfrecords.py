@@ -38,7 +38,8 @@ def dict_to_tf_example(data,
     encoded_jpg_io = io.BytesIO(encoded_jpg)
     image = PIL.Image.open(encoded_jpg_io)
     if image.format != 'JPEG':
-        raise ValueError('Image format not JPEG')
+        print('Image format not JPEG')
+        return None
     key = hashlib.sha256(encoded_jpg).hexdigest()
 
     width = int(data['size']['width'])
@@ -115,12 +116,14 @@ def convert_to_tfrecords(annotation_dir, label_map_path, train_records_file, val
     with tf.io.TFRecordWriter(train_records_file) as train_writer, tf.io.TFRecordWriter(val_records_file) as val_writer:
         for i, xml_path in enumerate(xml_files):
             tf_example = xml_to_tf_example(xml_path, label_map_dict)
+            if tf_example is None:
+                continue
             writer = train_writer if i < split_pos else val_writer
             writer.write(tf_example.SerializeToString())
 
 if __name__ == '__main__':
-    train_records_file = "eBay-Daten/data/train.records"
-    val_records_file = "eBay-Daten/data/val.records"
-    label_map_path = "eBay-Daten/data/label_map.pbtxt"
-    annotated_images_dir = "eBay-Daten/annotations"
+    train_records_file = "workspace/data/train.records"
+    val_records_file = "workspace/data/val.records"
+    label_map_path = "workspace/data/label_map.pbtxt"
+    annotated_images_dir = "workspace/annotations/"
     convert_to_tfrecords(annotated_images_dir, label_map_path, train_records_file, val_records_file)

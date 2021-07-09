@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 MAX_SIZE = 500
 
-img = cv2.imread('eBay-Daten\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\153619873202_6.jpg',cv2.IMREAD_COLOR)
+img = cv2.imread('workspace\\Ebay_2019_09_03_bis_2019_11_30\\ItemPictures\\153619873202_6.jpg',cv2.IMREAD_COLOR)
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 gray = cv2.equalizeHist(gray)
 
