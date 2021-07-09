@@ -22,8 +22,12 @@ Now you can start preparing the data.
 1. Change to the main directory (one folder above Tensorflow)
 2. Annotate your images using `python labelImg/labelImg.py`, make sure to place the annotations into the folder workspace/annotations
 3. After you are done annotating your images, convert them to tfrecords using `python pascal_xml_to_tfrecords.py`
-4. Select your model...
-5. TODO
+4. Create a new folder inside workspace, call it pre_trained_models/
+5. Go to the [model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md), and select a model you want to work with (e.g EfficientDet D0), extract the model into the pre_trained_models/ folder
+6. Inside the workspace/models/ directory, create another directory with with the name of just downloaded model (e.g efficientdet_d0/v1/)
+7. From the pre_trained_models/ folder, copy-and-paste the pipeline.config file into this folder.
+8. Open the models/efficientdet_d0/pipeline.config file and adjust it to your needs (see this github repo for example)
+9. You are now ready to train your network.
 
 # Train your network
 cd workspace 
