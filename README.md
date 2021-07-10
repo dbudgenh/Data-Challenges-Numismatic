@@ -46,4 +46,4 @@ python .\inference.py
 python model_main_tf2.py --pipeline_config_path=./models/efficientdet_d0/v1/pipeline.config --model_dir=./models/efficientdet_d0/v1/ --checkpoint_dir=./models/efficientdet_d0/v1/--num_workers=4  --sample_1_of_n_eval_examples=1
 
 # Example
-![Example video of coin detection](https://github.com/dbudgenh/Data-Challenges-Numismatic/blob/master/workspace/videos/result.gif)
+![Example demonstration of coin detection](https://github.com/dbudgenh/Data-Challenges-Numismatic/blob/master/workspace/videos/result_Trim.gif)
