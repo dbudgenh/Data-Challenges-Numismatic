@@ -1,4 +1,4 @@
-# For a detailed project report, click [here](https://github.com/dbudgenh/Data-Challenges-Numismatic/blob/master/Report_final.pdf)
+# For a detailed project report (German), click [here](https://github.com/dbudgenh/Data-Challenges-Numismatic/blob/master/Report_final.pdf)
 
 # To run the complete code, it is important to install the needed libraries.
 
